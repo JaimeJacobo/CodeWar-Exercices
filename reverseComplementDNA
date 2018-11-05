@@ -1,0 +1,60 @@
+
+INSTRUCTIONS:
+
+In genetic the reverse complement of a sequence is formed by reversing the sequence and then taking the complement of each symbol.
+
+The four nucleotides in DNA is Adenine (A), Cytosine (C), Guanine (G) and Thymine (Thymine).
+
+A is the complement of T
+C is the complement of G.
+This is a bi-directional relation so:
+
+T is the complement of A
+G is the complement of C.
+For this kata you need to complete the reverse complement function that take a DNA string and return the reverse complement string.
+
+Note: You need to take care of lower and upper case. And if a sequence conatains some invalid characters you need to return "Invalid sequence".
+
+This kata is based on the following one but with a little step in addition.
+
+
+MY ANSWER:
+
+
+DNAStrand = function(sequence){
+
+  let check = ['A', 'T', 'C', 'G'];
+  let reverse = sequence.split("");
+ 
+
+  for(let i = 0; i < reverse.length; i++){
+    if(reverse[i] !== 'A' && reverse[i] !== 'T' && reverse[i] !== 'C' && reverse[i] !== 'G'){
+      return 'Invalid Sequence'
+    };
+  };
+
+  let reverse2 = sequence.split("").reverse().join("");
+
+  let newSequence = new Array();
+  
+  for(let i = 0; i < reverse.length; i++){
+    if(reverse2[i] == 'A'){
+      newSequence.push('T');
+    } else if (reverse2[i] == 'T'){
+      newSequence.push('A');
+    } else if(reverse2[i] == 'C'){
+      newSequence.push('G');;
+    } else if (reverse2[i] == 'G'){
+      newSequence.push('C');;
+    };
+  };
+  return newSequence.join("");
+};
+
+
+
+
+GOOD PRACTICE ANSWER:
+
+const map = {'A': 'T', 'T': 'A', 'G': 'C', 'C': 'G'}
+const reverseComplement = dna => dna.match(/[^ATGC]/) ? "Invalid sequence" : [...dna.toUpperCase()].reverse().map(c => map[c]).join('');
