@@ -1,0 +1,28 @@
+INSTRUCTIONS:
+
+Define a function isPrime/is_prime() that takes one integer argument and returns true/True or false/False depending on if the integer is a prime.
+
+Per Wikipedia, a prime number (or a prime) is a natural number greater than 1 that has no positive divisors other than 1 and itself.
+
+
+MY SOLUTION:
+
+let isPrime = ((numberInt)=>{
+  if(numberInt == 1){
+    return false;
+  } else {
+    if(numberInt == 2 || numberInt == 3 || numberInt == 5 || numberInt == 7){
+      return true;
+    } else {
+      if(numberInt > 0){
+        if(numberInt % 2 != 0 && numberInt % 3 != 0 && numberInt % 5 != 0 && numberInt % 7 != 0){
+          return true;
+        } else {
+          return false;
+        };
+      } else {
+        return false;
+      };
+    };
+  };
+});
