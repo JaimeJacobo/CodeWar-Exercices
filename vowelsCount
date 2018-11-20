@@ -1,0 +1,27 @@
+
+INSTRUCTIONS:
+
+Return the number (count) of vowels in the given string.
+
+We will consider a, e, i, o, and u as vowels for this Kata.
+
+The input string will only consist of lower case letters and/or spaces.
+
+
+
+
+
+
+
+
+MY SOLUTION:
+
+function getCount(stringInt) {
+  let vowelsCount = 0;
+  for(let i = 0; i < stringInt.length; i++){
+    if(stringInt[i] == 'a' || stringInt[i] == 'e' || stringInt[i] == 'i' || stringInt[i] == 'o' || stringInt[i] == 'u'){
+      vowelsCount ++;
+    };
+  };
+  return vowelsCount;
+}
