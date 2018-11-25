@@ -1,0 +1,60 @@
+
+
+INSTRUCTIONS:
+
+Move the first letter of each word to the end of it, then add "ay" to the end of the word. Leave punctuation marks untouched.
+
+Examples
+pigIt('Pig latin is cool'); // igPay atinlay siay oolcay
+pigIt('Hello world !');     // elloHay orldway !
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+MY SOLUTION:
+
+
+let pigIt = ((stringInt)=>{
+  stringInt = stringInt.split(' ');
+  let finalAnswer = new Array();
+  for(let i = 0; i < stringInt.length; i++){
+   usedString = stringInt[i]
+    let comparativeArray = new Array();
+    let returnedArray = new Array();
+    let pigIt = ((arrayInt)=>{
+      if(arrayInt != '?' && arrayInt != '!'){
+        let firstLetter = arrayInt[0];
+        arrayInt.shift();
+        arrayInt.push(firstLetter);
+        arrayInt.push('a', 'y')
+        arrayInt = arrayInt.join();
+        for(let i = 0; i < arrayInt.length; i++){
+          arrayInt = arrayInt.replace(',', '');
+        };
+        return arrayInt;
+      } else {
+        return arrayInt;
+      };
+    });
+    for(let i = 0; i < usedString.length; i++){
+      comparativeArray.push(usedString[i]);
+    };
+    returnedArray.push(pigIt(comparativeArray));
+    finalAnswer.push(returnedArray);
+  };
+  finalAnswer = finalAnswer.join();
+  for(let i = 0; i < stringInt.length; i++){
+    finalAnswer = finalAnswer.replace(',', ' ');
+  };
+  return finalAnswer;
+});

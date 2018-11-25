@@ -1,4 +1,3 @@
-
 Instructions:
 
 You probably know the "like" system from Facebook and other pages. People can "like" blog posts, pictures or other items. We want to create the text that should be displayed next to such an item.
@@ -25,3 +24,4 @@ let likes = ((namesInt)=>{
     return namesInt[0] + ', ' + namesInt[1] + ' and ' + (namesInt.length - 2) + ' others like this';
   }
 });
+

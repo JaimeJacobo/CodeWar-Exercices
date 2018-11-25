@@ -1,3 +1,4 @@
+
 INSTRUCTIONS:
 
 
@@ -45,5 +46,3 @@ let moveZeros = ((arrayInt)=>{
 
   return returnArray
 });
-
-console.log(moveZeros(numbers))
