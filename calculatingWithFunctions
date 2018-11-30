@@ -1,0 +1,192 @@
+
+INSTRUCTIONS:
+
+This time we want to write calculations using functions and get the results. Let's have a look at some examples:
+
+JavaScript:
+
+seven(times(five())); // must return 35
+four(plus(nine())); // must return 13
+eight(minus(three())); // must return 5
+six(dividedBy(two())); // must return 3
+Ruby:
+
+seven(times(five)) # must return 35
+four(plus(nine)) # must return 13
+eight(minus(three)) # must return 5
+six(divided_by(two)) # must return 3
+Requirements:
+
+There must be a function for each number from 0 ("zero") to 9 ("nine")
+There must be a function for each of the following mathematical operations: plus, minus, times, dividedBy (divided_by in Ruby)
+Each calculation consist of exactly one operation and two numbers
+The most outer function represents the left operand, the most inner function represents the right operand
+Divison should be integer division, e.g eight(dividedBy(three()))/eight(divided_by(three)) should return 2, not 2.666666...
+
+
+MY SOLUTION:
+
+function zero(int) {
+  if(!int){
+    return '0';
+  } else {
+    if(int[0] == '+'){
+      return 0 + Number(int[1]);
+    } else if(int[0] == '-'){
+      return 0 - Number(int[1]);
+    } else if(int[0] == '*'){
+      return 0 * Number(int[1]);
+    } else if(int[0] == '/'){
+      return Math.floor(0 / Number(int[1]));
+    };
+  };
+};
+function one(int) {
+  if(!int){
+    return '1';
+  } else {
+    if(int[0] == '+'){
+      return 1 + Number(int[1]);
+    } else if(int[0] == '-'){
+      return 1 - Number(int[1]);
+    } else if(int[0] == '*'){
+      return 1 * Number(int[1]);
+    } else if(int[0] == '/'){
+      return Math.floor(1 / Number(int[1]));
+    };
+  };
+};
+function two(int) {
+  if(!int){
+    return '2';
+  } else {
+    if(int[0] == '+'){
+      return 2 + Number(int[1]);
+    } else if(int[0] == '-'){
+      return 2 - Number(int[1]);
+    } else if(int[0] == '*'){
+      return 2 * Number(int[1]);
+    } else if(int[0] == '/'){
+      return Math.floor(2 / Number(int[1]));
+    };
+  };
+};
+function three(int) {
+  if(!int){
+    return '3';
+  } else {
+    if(int[0] == '+'){
+      return 3 + Number(int[1]);
+    } else if(int[0] == '-'){
+      return 3 - Number(int[1]);
+    } else if(int[0] == '*'){
+      return 3 * Number(int[1]);
+    } else if(int[0] == '/'){
+      return Math.floor(3 / Number(int[1]));
+    };
+  };
+};
+function four(int) {
+  if(!int){
+    return '4';
+  } else {
+    if(int[0] == '+'){
+      return 4 + Number(int[1]);
+    } else if(int[0] == '-'){
+      return 4 - Number(int[1]);
+    } else if(int[0] == '*'){
+      return 4 * Number(int[1]);
+    } else if(int[0] == '/'){
+      return Math.floor(4 / Number(int[1]));
+    };
+  };
+};
+function five(int) {
+  if(!int){
+    return '5';
+  } else {
+    if(int[0] == '+'){
+      return 5 + Number(int[1]);
+    } else if(int[0] == '-'){
+      return 5 - Number(int[1]);
+    } else if(int[0] == '*'){
+      return 5 * Number(int[1]);
+    } else if(int[0] == '/'){
+      return Math.floor(5 / Number(int[1]));
+    };
+  };
+};
+function six(int) {
+  if(!int){
+    return '6';
+  } else {
+    if(int[0] == '+'){
+      return 6 + Number(int[1]);
+    } else if(int[0] == '-'){
+      return 6 - Number(int[1]);
+    } else if(int[0] == '*'){
+      return 6 * Number(int[1]);
+    } else if(int[0] == '/'){
+      return Math.floor(6 / Number(int[1]));
+    };
+  };
+};
+function seven(int) {
+ if(!int){
+    return '7';
+  } else {
+    if(int[0] == '+'){
+      return 7 + Number(int[1]);
+    } else if(int[0] == '-'){
+      return 7 - Number(int[1]);
+    } else if(int[0] == '*'){
+      return 7 * Number(int[1]);
+    } else if(int[0] == '/'){
+      return Math.floor(7 / Number(int[1]));
+    };
+  };
+};
+function eight(int) {
+  if(!int){
+    return '8';
+  } else {
+    if(int[0] == '+'){
+      return 8 + Number(int[1]);
+    } else if(int[0] == '-'){
+      return 8 - Number(int[1]);
+    } else if(int[0] == '*'){
+      return 8 * Number(int[1]);
+    } else if(int[0] == '/'){
+      return Math.floor(8 / Number(int[1]));
+    };
+  };
+};
+function nine(int) {
+  if(!int){
+    return '9';
+  } else {
+    if(int[0] == '+'){
+      return 9 + Number(int[1]);
+    } else if(int[0] == '-'){
+      return 9 - Number(int[1]);
+    } else if(int[0] == '*'){
+      return 9 * Number(int[1]);
+    } else if(int[0] == '/'){
+      return Math.floor(9 / Number(int[1]));
+    };
+  };
+};
+
+
+function plus(number) {
+  return '+' + number;
+};
+function minus(number) {
+  return '-' + number;
+};
+function times(number) {
+  return '*' + number;
+};
+function dividedBy(number) {
+  return '/' + number;
+};
