@@ -1,0 +1,39 @@
+INSTRUCTIONS:
+
+Write a function named firstNonRepeatingLetter† that takes a string input, and returns the first character that is not repeated anywhere in the string.
+
+For example, if given the input 'stress', the function should return 't', since the letter t only occurs once in the string, and occurs first in the string.
+
+As an added challenge, upper- and lowercase letters are considered the same character, but the function should return the correct case for the initial letter. For example, the input 'sTreSS' should return 'T'.
+
+If a string contains all repeating characters, it should return the empty string ("").
+
+† Note: the function is called firstNonRepeatingLetter for historical reasons, but your function should handle any Unicode character.
+
+
+
+
+MY SOLUTION:
+
+let firstNonRepeatingLetter = ((stringInt)=>{
+  let stringLowerCasedArray = new Array();
+  let stringLowerCased;
+  for(let i = 0; i < stringInt.length; i++){
+    stringLowerCasedArray.push(stringInt[i].toLowerCase());
+  };
+  stringLowerCased = stringLowerCasedArray.toString();
+  stringLowerCased = stringLowerCasedArray.join('');
+  for(let i = 0; i < stringLowerCased.length;i++){
+    let comparativeCount = 0;
+    let comparativeLetter = stringLowerCased[i];
+    for(let i = 0; i < stringLowerCased.length; i++){
+      if(comparativeLetter == stringLowerCased[i]){
+        comparativeCount++;
+      };
+    };
+    if(comparativeCount == 1){
+      return stringInt[i];
+    };
+  };
+  return "";
+});
