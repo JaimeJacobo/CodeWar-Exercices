@@ -1,0 +1,175 @@
+INSTRUCTIONS:
+
+Your task in order to complete this Kata is to write a function which formats a duration, given as a number of seconds, in a human-friendly way.
+
+The function must accept a non-negative integer. If it is zero, it just returns "now". Otherwise, the duration is expressed as a combination of years, days, hours, minutes and seconds.
+
+It is much easier to understand with an example:
+
+formatDuration(62)    // returns "1 minute and 2 seconds"
+formatDuration(3662)  // returns "1 hour, 1 minute and 2 seconds"
+For the purpose of this Kata, a year is 365 days and a day is 24 hours.
+
+Note that spaces are important.
+
+Detailed rules
+The resulting expression is made of components like 4 seconds, 1 year, etc. In general, a positive integer and one of the valid units of time, separated by a space. The unit of time is used in plural if the integer is greater than 1.
+
+The components are separated by a comma and a space (", "). Except the last component, which is separated by " and ", just like it would be written in English.
+
+A more significant units of time will occur before than a least significant one. Therefore, 1 second and 1 year is not correct, but 1 year and 1 second is.
+
+Different components have different unit of times. So there is not repeated units like in 5 seconds and 1 second.
+
+A component will not appear at all if its value happens to be zero. Hence, 1 minute and 0 seconds is not valid, but it should be just 1 minute.
+
+A unit of time must be used "as much as possible". It means that the function should not return 61 seconds, but 1 minute and 1 second instead. Formally, the duration specified by of a component must not be greater than any valid more significant unit of time.
+
+
+
+MY SOLUTION:
+
+let formatDuration = ((secondsInt)=>{
+  if(secondsInt == 0) return 'now'
+  let countForSeconds = secondsInt;
+  let countForMinutes = 0;
+  let countForHours = 0;
+  let countForDays = 0;
+  let countForYears = 0;
+  let countForUndefined = 0;
+  while(countForSeconds >= 60){
+    countForSeconds -= 60;
+    countForMinutes++;
+  };
+  while(countForMinutes >= 60){
+    countForMinutes -= 60;
+    countForHours++;
+  };
+  while(countForHours >= 24){
+    countForHours -= 24;
+    countForDays++;
+  };
+  while(countForDays >= 365){
+    countForDays -= 365;
+    countForYears++;
+  };
+  let getYears = (()=>{
+    if(countForYears == 0){
+      countForUndefined++;
+      return '';
+    } else if(countForYears == 1){
+      return '1 year';
+    } else {
+      return countForYears + ' years';
+    };
+  });
+  let getDays = (()=>{
+    if(countForDays == 0){
+      countForUndefined++;
+      return '';
+    } else if(countForDays == 1){
+      return '1 day';
+    } else {
+      return countForDays + ' days';
+    };
+  });
+  let getHours = (()=>{
+    if(countForHours == 0){
+      countForUndefined++;
+      return '';
+    } else if(countForHours == 1){
+      return '1 hour';
+    } else {
+      return countForHours + ' hours';
+    };
+  });
+  let getMinutes = (()=>{
+    if(countForMinutes == 0){
+      countForUndefined++;
+      return '';
+      console.log(countForUndefined)
+    } else if(countForMinutes == 1){
+      return '1 minute';
+    } else {
+      return countForMinutes + ' minutes';
+    };
+  });
+  let getSeconds = (()=>{
+    if(countForSeconds == 0){
+      countForUndefined++;
+      return '';
+    } else if(countForSeconds == 1){
+      return '1 second';
+    } else {
+      return countForSeconds + ' seconds';
+    };
+  });
+  getSeconds();
+  getMinutes();
+  getHours();
+  getDays();
+  getYears();
+  if(countForUndefined == 4){
+    return getYears() + getDays() + getHours() + getMinutes() + getSeconds();
+  } else if(countForUndefined == 3){
+    if(getYears() == '' && getDays() == '' && getHours() == ''){
+      return getMinutes() + ' and ' + getSeconds();
+    } else if(getYears() == '' && getDays() == '' && getMinutes() == ''){
+      return getHours() + ' and ' + getSeconds();
+    } else if(getYears() == '' &&  getHours() == '' && getMinutes() == ''){
+      return getDays() + ' and ' + getSeconds();
+    } else if(getDays() == '' &&  getHours() == '' && getMinutes() == ''){
+      return getYears() + ' and ' + getSeconds();
+    } else if(getYears() == '' && getDays() == '' && getSeconds() == ''){
+      return getHours() + ' and ' + getMinutes();
+    } else if(getYears() == '' && getHours() == '' && getSeconds() == ''){
+      return getDays() + ' and ' + getMinutes();
+    } else if(getYears() == '' && getMinutes() == '' && getSeconds() == ''){
+      return getDays() + ' and ' + getHours();
+    } else if(getDays() == '' && getHours() == '' && getSeconds() == ''){
+      return getYears() + ' and ' + getMinutes();
+    } else if(getDays() == '' && getMinutes() == '' && getSeconds() == ''){
+      return getYears() + ' and ' + getHours();
+    } else if(getHours() == '' && getMinutes() == '' && getSeconds() == ''){
+      return getYears() + ' and ' + getDays();
+    }
+  } else if(countForUndefined == 2){
+    if(getMinutes() == '' && getSeconds() == ''){
+      return getYears() + ', ' + getDays() + ' and ' + getHours();
+    } else if(getHours() == '' && getSeconds() == ''){
+      return getYears() + ', ' + getDays() + ' and ' + getMinutes();
+    } else if(getHours() == '' && getMinutes() == ''){
+      return getYears() + ', ' + getDays() + ' and ' + getSeconds();
+    } else if(getDays() == '' && getSeconds() == ''){
+      return getYears() + ', ' + getHours() + ' and ' + getMinutes();
+    } else if(getDays() == '' && getMinutes() == ''){
+      return getYears() + ', ' + getHours() + ' and ' + getSeconds();
+    } else if(getDays() == '' && getHours() == ''){
+      return getYears() + ', ' + getMinutes() + ' and ' + getSeconds();
+    } else if(getYears() == '' && getSeconds() == ''){
+      return getDays() + ', ' + getHours() + ' and ' + getMinutes();
+    } else if(getYears() == '' && getMinutes() == ''){
+      return getDays() + ', ' + getHours() + ' and ' + getSeconds();
+    } else if(getYears() == '' && getHours() == ''){
+      return getDays() + ', ' + getMinutes() + ' and ' + getSeconds();
+    } else if(getYears() == '' && getDays() == ''){
+      return getHours() + ', ' + getMinutes() + ' and ' + getSeconds();
+    }
+
+
+  } else if(countForUndefined == 1){
+    if(getSeconds() == ''){
+      return getYears() + ', ' + getDays() + ', ' + getHours() + ' and ' + getMinutes();
+    } else if(getMinutes() == ''){
+      return getYears() + ', ' + getDays() + ', ' + getHours() + ' and ' + getSeconds();
+    } else if(getHours() == ''){
+      return getYears() + ', ' + getDays() + ', ' + getMinutes() + ' and ' + getSeconds();
+    } else if(getDays() == ''){
+      return getYears() + ', ' + getHours() + ', ' + getMinutes() + ' and ' + getSeconds();
+    } else if(getYears() == ''){
+      return getDays() + ', ' + getHours() + ', ' + getMinutes() + ' and ' + getSeconds();
+    };
+  } else if(countForUndefined == 0){
+    return getYears() + ', ' + getDays() + ', ' + getHours() + ', ' + getMinutes() + ' and ' + getSeconds();
+  }; 
+});
