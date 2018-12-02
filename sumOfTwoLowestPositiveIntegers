@@ -1,0 +1,18 @@
+INSTRUCTIONS:
+
+Create a function that returns the sum of the two lowest positive numbers given an array of minimum 4 integers. No floats or empty arrays will be passed.
+
+For example, when an array is passed like [19, 5, 42, 2, 77], the output should be 7.
+
+[10, 343445353, 3453445, 3453545353453] should return 3453455.
+
+
+
+MY SOLUTION
+
+let sumTwoSmallestNumbers = ((numbersInt)=>{
+  let smallestNumber = numbersInt[0];
+  let secondsmallestNumber = numbersInt[0];
+  numbersInt.sort((a, b) => a - b);
+  return numbersInt[0] + numbersInt[1];
+});
