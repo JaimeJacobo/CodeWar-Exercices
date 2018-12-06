@@ -1,0 +1,27 @@
+INSTRUCTIONS:
+
+Given an array, find the int that appears an odd number of times.
+
+There will always be only one integer that appears an odd number of times.
+
+
+
+
+MY SOLUTION:
+
+let findOdd = ((arrayInt)=>{
+  let comparativeNumber;
+  let comparativeCount = 0;
+  for(let i = 0; i < arrayInt.length; i++){
+    comparativeNumber = arrayInt[i]
+    for(let i = 0; i < arrayInt.length; i++){
+      if(comparativeNumber == arrayInt[i]){
+        comparativeCount++;
+      };
+    };
+    if(comparativeCount % 2 != 0){
+      return comparativeNumber;
+    };
+    comparativeCount = 0;
+  };
+});
