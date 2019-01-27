@@ -1,0 +1,50 @@
+
+INSTRUCTIONS
+
+Your task is to sort a given string. Each word in the string will contain a single number. This number is the position the word should have in the result.
+
+Note: Numbers can be from 1 to 9. So 1 will be the first word (not 0).
+
+If the input string is empty, return an empty string. The words in the input String will only contain valid consecutive numbers.
+
+Examples
+"is2 Thi1s T4est 3a"  -->  "Thi1s is2 3a T4est"
+"4of Fo1r pe6ople g3ood th5e the2"  -->  "Fo1r the2 g3ood 4of th5e pe6ople"
+""  -->  ""
+
+
+
+
+
+
+
+
+MY SOLUTION
+
+order = (words) => {
+  let comparativeArray = [0,-1,-2,-3,-4,-5,-6,-7,-8];
+  let counter = 0;
+  words = words.split(" "); 
+  words.forEach((word)=>{
+    if(word.indexOf('1') != -1) comparativeArray[0] = word;
+    if(word.indexOf('2') != -1) comparativeArray[1] = word;
+    if(word.indexOf('3') != -1) comparativeArray[2] = word;
+    if(word.indexOf('4') != -1) comparativeArray[3] = word;
+    if(word.indexOf('5') != -1) comparativeArray[4] = word;
+    if(word.indexOf('6') != -1) comparativeArray[5] = word;
+    if(word.indexOf('7') != -1) comparativeArray[6] = word;
+    if(word.indexOf('8') != -1) comparativeArray[7] = word;
+    if(word.indexOf('9') != -1) comparativeArray[8] = word;
+  });
+  comparativeArray.forEach((word)=>{
+    if(word <= 0) counter++;
+  });
+  for(let i = 1; i <= counter; i++){
+    comparativeArray.pop();
+  };
+    comparativeArray = comparativeArray.join();
+    for(let i = 0; i < comparativeArray.length; i++){
+      comparativeArray = comparativeArray.replace(',', ' ');
+    };
+    return comparativeArray;
+};
